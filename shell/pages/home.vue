@@ -220,6 +220,13 @@ export default {
     markSeenReleaseNotes(this.$store);
   },
 
+  beforeMount() {
+    const oidc = this.$cookies.get('oidc', { parseJSON: false });
+    if(oidc) {
+      window.location.href = '/oidc/authorize/callback'+oidc;
+      this.$cookies.remove('oidc');
+    }
+  },
   // Forget the types when we leave the page
   beforeUnmount() {
     this.$store.dispatch('management/forgetType', CAPI.MACHINE);

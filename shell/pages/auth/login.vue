@@ -164,6 +164,18 @@ export default {
 
   methods: {
     async loadInitialSettings() {
+      const queryString = window.location.search;
+      if (queryString.includes('oidc-client')) {
+        this.$cookies.set('oidc', queryString, {
+          path: '/',
+          sameSite: true,
+          secure: true,
+        });
+      } else {
+        this.$cookies.remove('oidc');
+      }
+      // TODO unset cookie if redirectURL not provided!
+
       let firstLoginSetting, plSetting, brand;
 
       // Load settings.
