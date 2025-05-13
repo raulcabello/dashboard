@@ -13,7 +13,8 @@ export const BASE_SCOPES = {
   googleoauth:  ['openid profile email'],
   azuread:      [],
   keycloakoidc: ['openid profile email'],
-  genericoidc:  ['openid profile email'],
+  genericoidc:  ['openid email phone'],
+  awscognito: ['openid email phone'],
 };
 
 const KEY = 'rc_nonce';
@@ -207,6 +208,7 @@ export const actions = {
     const provider = opt.provider;
     let redirectUrl = opt.redirectUrl;
 
+    alert(redirectUrl)
     if ( !redirectUrl ) {
       const driver = await dispatch('getAuthProvider', provider);
 
@@ -233,10 +235,12 @@ export const actions = {
     const scopes = fromQuery.split(/[, ]+/).filter((x) => !!x);
 
     if (BASE_SCOPES[provider]) {
+      alert("a")
       addObjects(scopes, BASE_SCOPES[provider]);
     }
 
     if ( opt.scopes ) {
+      alert("b")
       addObjects(scopes, opt.scopes);
     }
 
@@ -246,6 +250,7 @@ export const actions = {
       [GITHUB_SCOPE]: scopes.join(opt.scopesJoinChar || ','), // Some providers won't accept comma separated scopes
       [GITHUB_NONCE]: encodedNonce
     };
+    alert(scopes)
 
     if (!url.includes(GITHUB_REDIRECT)) {
       params[GITHUB_REDIRECT] = returnToUrl;

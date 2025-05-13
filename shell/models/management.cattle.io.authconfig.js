@@ -16,6 +16,7 @@ export const configType = {
   github:          'oauth',
   keycloakoidc:    'oidc',
   genericoidc:     'oidc',
+  awscognito:      'oidc',
 };
 
 const imageOverrides = { keycloakoidc: 'keycloak', genericoidc: 'openid' };

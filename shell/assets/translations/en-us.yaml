@@ -6643,7 +6643,8 @@ model:
       ldap: LDAP
       saml: SAML
       oauth: OAuth
-      oidc: OIDC
+      oidc: OIDCA
+      awscognito: AWS Cognito
     name:
       keycloak: Keycloak (SAML)
       keycloakoidc: Keycloak (OIDC)
