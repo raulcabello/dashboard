@@ -11,5 +11,9 @@ const excludes = process.env.EXCLUDES_PKG || defaultExcludes;
 
 module.exports = config(__dirname, {
   excludes: excludes.replace(/\s/g, '').split(','),
+  devServer: {
+    disableHostCheck: true,
+  },
+
   // excludes: ['fleet', 'example']
 });

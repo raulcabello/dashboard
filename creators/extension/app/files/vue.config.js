@@ -2,5 +2,9 @@ const config = require('@rancher/shell/vue.config'); // eslint-disable-line @typ
 
 module.exports = config(__dirname, {
   excludes: [],
+  devServer: {
+    disableHostCheck: true,
+  },
+
   // excludes: ['fleet', 'example']
 });
