@@ -13,7 +13,7 @@ export const BASE_SCOPES = {
   googleoauth:  ['openid profile email'],
   azuread:      [],
   keycloakoidc: ['openid profile email'],
-  genericoidc:  ['openid profile email'],
+  genericoidc:  ['openid email'],
 };
 
 const KEY = 'rc_nonce';
