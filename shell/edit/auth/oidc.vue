@@ -358,6 +358,18 @@ export default {
           </div>
         </div>
 
+        <!-- Organization -->
+        <div class="row mb-20">
+          <div class="col span-6">
+            <h3>Organization JSON Path</h3>
+            <LabeledInput
+              v-model:value="model.organizationJSONPath"
+              :placeholder="organization"
+              :mode="mode"
+            />
+          </div>
+        </div>
+
         <template v-if="!isAmazonCognito">
           <!-- Generated vs Specific Endpoints -->
           <div class="row mb-20">

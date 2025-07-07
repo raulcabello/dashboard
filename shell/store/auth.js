@@ -248,7 +248,8 @@ export const actions = {
 
     // TODO: #13457 - Verify use case of scopesJoinChar anywhere outside this repository
     const params = {
-      [GITHUB_SCOPE]: scopes.join(opt.scopesJoinChar || ','), // Some providers won't accept comma separated scopes
+      // TODO check how to use opt.scopesJoinChar ??
+      [GITHUB_SCOPE]: scopes.join(opt.scopesJoinChar || ' '), // Some providers won't accept comma separated scopes
       [GITHUB_NONCE]: encodedNonce
     };
 

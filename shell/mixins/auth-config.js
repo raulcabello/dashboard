@@ -147,7 +147,6 @@ export default {
      */
     async save(btnCb) {
       await this.applyHooks(BEFORE_SAVE_HOOKS);
-
       const configType = this.value.configType;
 
       this.errors = [];
@@ -157,7 +156,6 @@ export default {
         this.isEnabling = true;
       }
       let obj = this.toSave;
-
       if (!obj) {
         obj = this.model;
       }
